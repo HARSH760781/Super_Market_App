@@ -9,7 +9,7 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://online-food-delivery-jxii.onrender.com",
+  "https://super-market-x1zc.onrender.com",
 ];
 
 app.use(
