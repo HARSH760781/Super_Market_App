@@ -10,11 +10,13 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:3000",
   "https://super-market-app.vercel.app",
+  "https://super-market-x1zc.onrender.com",
 ];
 
 app.use(
   cors({
     origin: function (origin, callback) {
+      console.log(origin);
       // Check if the origin is allowed
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
@@ -147,7 +149,7 @@ app.post("/uploadProduct", async (req, res) => {
 
 app.get("/product", async (req, res) => {
   const data = await productModel.find({});
-  console.log(data);
+  // console.log(data);
   res.send(JSON.stringify(data));
 });
 

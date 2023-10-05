@@ -9,17 +9,15 @@ import { useDispatch, useSelector } from "react-redux";
 function App() {
   const dispatch = useDispatch();
   const productData = useSelector((state) => state.product);
-  // const backend_url =
-  //   process.env.REACT_APP_SERVER_DOMIN || "http://localhost:8000";
-  const backend_url = "http://localhost:8000";
+  const backend_url =
+    process.env.REACT_APP_SERVER_DOMIN || "http://localhost:8000";
   useEffect(() => {
     (async () => {
       try {
-        console.log("helo");
+        // console.log("helo");
         const res = await fetch(`${backend_url}/product`);
-        console.log(process.env.REACT_APP_SERVER_DOMIN);
         const resData = await res.json();
-        console.log("resdata", resData);
+        // console.log("resdata", resData);
         dispatch(setDataProduct(resData));
       } catch (error) {
         console.log(`Failed to load the data from database:${error}`);
