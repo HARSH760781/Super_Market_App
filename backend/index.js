@@ -9,7 +9,7 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://super-market-x1zc.onrender.com",
+  "https://super-market-app.vercel.app",
 ];
 
 app.use(
@@ -146,26 +146,10 @@ app.post("/uploadProduct", async (req, res) => {
 });
 
 app.get("/product", async (req, res) => {
-  console.log("Monkey");
   const data = await productModel.find({});
+  console.log(data);
   res.send(JSON.stringify(data));
 });
-// app.get("/product", async (req, res) => {
-//   const page = parseInt(req.query.page) || 1; // Get page number from query parameter
-//   const perPage = 10; // Set the number of items per page
-
-//   try {
-//     const data = await productModel
-//       .find({})
-//       .skip((page - 1) * perPage)
-//       .limit(perPage);
-
-//     res.json(data);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ message: "Server error" });
-//   }
-// });
 
 /*****payment getWay */
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
